@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenuUI : MonoBehaviour
 {
     [SerializeField, Tooltip("The default selected tab.")]
     private Tab defaultSelectedTab;
