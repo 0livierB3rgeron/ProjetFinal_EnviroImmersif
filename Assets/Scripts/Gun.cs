@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    /// <summary>
-    /// Callback function triggered when the user presses the Trigger button
-    /// while holding this gun.
-    /// </summary>
+    [SerializeField]
+    private LayerMask validLayersMask;
+
     public void Shoot()
     {
-        Debug.Log("Shoot");
+        RaycastHit hit;
+        // If the ray intersect a target, call the OnHit() method of this Target GameObject.
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, Mathf.Infinity, validLayersMask))
+        {
+            Debug.Log(hit.transform.gameObject.name);
+            //hit.transform.gameObject.GetComponent<Target>().OnHit();
+        }
     }
 }
