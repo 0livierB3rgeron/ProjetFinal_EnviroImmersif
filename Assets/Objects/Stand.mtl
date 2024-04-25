@@ -1,0 +1,40 @@
+newmtl Atlas_01_Mat
+map_Kd Atlas_01_Albedo.tif
+map_Pm Atlas_01_Metallic.tif
+bump Atlas_01_Normal.tif
+Kd 1 1 1
+d 1
+
+newmtl Parquet_02_Mat
+map_Kd Parque_02_Albedo.tif
+map_Pm Parque_02_Metallic.tif
+bump Parque_02_Normal.tif
+Kd 1 1 1
+d 1
+
+newmtl Atlas_02_Mat
+map_Kd Atlas_02_Albedo.tif
+map_Pm Atlas_02_Metallic.tif
+bump Atlas_02_Normal.tif
+Kd 1 1 1
+d 1
+
+newmtl Atlas_05_Mat
+map_Kd Atlas_05_Albedo.png
+bump Atlas_05_Normal.tif
+Kd 1 1 1
+d 1
+
+newmtl Atlas_03_Mat
+map_Kd Atlas_03_Albedo.tif
+map_Pm Atlas_03_Metallic.tif
+bump Atlas_03_Normal.tif
+Kd 1 1 1
+d 1
+
+newmtl Atlas_Fx_Mat
+map_Kd Atlas_FX_Albedo.tif
+map_Ke Atlas_FX_Emissive.tif
+Kd 1 1 1
+d 1
+
