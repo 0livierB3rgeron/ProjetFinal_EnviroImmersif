@@ -1272,6 +1272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17befa341658ad14ba1d25258f89cf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbrPoints: 20
+  scoreDisplay: {fileID: 0}
 --- !u!1 &293320756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,6 +1470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17befa341658ad14ba1d25258f89cf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbrPoints: 20
+  scoreDisplay: {fileID: 0}
 --- !u!1 &320792328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,6 +2906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17befa341658ad14ba1d25258f89cf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbrPoints: 20
+  scoreDisplay: {fileID: 0}
 --- !u!1 &698878550
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,6 +4510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17befa341658ad14ba1d25258f89cf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbrPoints: 20
+  scoreDisplay: {fileID: 0}
 --- !u!95 &1010018375
 Animator:
   serializedVersion: 5
@@ -5706,6 +5714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17befa341658ad14ba1d25258f89cf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbrPoints: 20
+  scoreDisplay: {fileID: 0}
 --- !u!1 &1220267989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6378,6 +6388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17befa341658ad14ba1d25258f89cf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbrPoints: 20
+  scoreDisplay: {fileID: 0}
 --- !u!1 &1345769539
 GameObject:
   m_ObjectHideFlags: 0
@@ -9797,6 +9809,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreUIText: {fileID: 60746737}
+  targets:
+  - {fileID: 301263547}
+  - {fileID: 1156084792}
+  - {fileID: 1010018374}
+  - {fileID: 1305843468}
+  - {fileID: 281068686}
+  - {fileID: 672676666}
 --- !u!1 &2045460895
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,8 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField]
     private Text scoreUIText;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public event Action<float> OnPointsGained;
+    [SerializeField]
+    private List<Target> targets;
 
     /// <summary>
     /// 
@@ -21,8 +20,11 @@ public class ScoreDisplay : MonoBehaviour
 
     private void Start()
     {
-        // Listen to OnPointsGained event.
-        OnPointsGained += HandleOnPointsGained;
+        foreach (var target in targets)
+        {
+            // Listen to OnPointsGained event.
+            target.OnPointsGained += HandleOnPointsGained;
+        }
 
         // Update the score UI text.
         scoreUIText.text = "Score: 0";
@@ -30,8 +32,11 @@ public class ScoreDisplay : MonoBehaviour
 
     private void OnDisable()
     {
-        // Unsubscribe from the event.
-        OnPointsGained -= HandleOnPointsGained;
+        foreach (var target in targets)
+        {
+            // Unsubscribe from the OnPointsGained event.
+            target.OnPointsGained -= HandleOnPointsGained;
+        }
     }
 
     /// <summary>
@@ -41,6 +46,7 @@ public class ScoreDisplay : MonoBehaviour
     private void HandleOnPointsGained(float points)
     {
         _score += points;
+        Debug.Log("Score: " + _score);
         scoreUIText.text = "Score: " + _score.ToString();
     }
 }

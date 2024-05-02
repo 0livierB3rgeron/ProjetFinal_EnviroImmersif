@@ -1,11 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    [SerializeField]
+    private float _nbrPoints;
+
+    [SerializeField]
+    private ScoreDisplay scoreDisplay;
     
     private Animator _targetAnimator;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public event Action<float> OnPointsGained;
+
     private void Start()
     {
         this._targetAnimator = GetComponent<Animator>();
@@ -21,6 +31,7 @@ public class Target : MonoBehaviour
     }
     public void OnHit()
     {
+        OnPointsGained?.Invoke(this._nbrPoints);
         Rotate();
     }
 }
