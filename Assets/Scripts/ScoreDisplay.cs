@@ -16,10 +16,13 @@ public class ScoreDisplay : MonoBehaviour
     /// </summary>
     public event Action OnScoreReset;
 
+    public bool partieFinie;
+
     private float _score = 0;
 
     private void Start()
     {
+        partieFinie = false;
         foreach (var target in targets)
         {
             // Listen to OnPointsGained event.
@@ -48,5 +51,10 @@ public class ScoreDisplay : MonoBehaviour
         _score += points;
         Debug.Log("Score: " + _score);
         scoreUIText.text = "Score: " + _score.ToString();
+        if (_score == 120)
+        {
+            partieFinie=true;
+        }
     }
+
 }
