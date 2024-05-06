@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         RaycastHit hit;
+        GetComponent<AudioSource>().Play();
         // If the ray intersect a target, call the OnHit() method of this Target GameObject.
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, Mathf.Infinity, validLayersMask))
         {
