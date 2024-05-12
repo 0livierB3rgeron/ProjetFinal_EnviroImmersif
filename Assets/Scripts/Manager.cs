@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    [SerializeField]
-    public ScoreDisplay scoreDisplay;
-    [SerializeField]
-    public GameObject gameOver;
-    
+    [SerializeField, Tooltip("ScoreDisplay GameObject")]
+    private ScoreDisplay scoreDisplay;
 
-    // Update is called once per frame
+    [SerializeField, Tooltip("Game over UI GameObjet")]
+    private GameObject gameOverUI;
+    
     void Update()
     {
         if (scoreDisplay.partieFinie)
         {
-            gameOver.gameObject.SetActive(true);
+            // Display the game over UI.
+            gameOverUI.SetActive(true);
         }
     }
 }

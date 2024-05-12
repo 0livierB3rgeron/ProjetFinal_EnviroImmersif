@@ -12,25 +12,26 @@ public class ScoreDisplay : MonoBehaviour
     private List<Target> targets;
 
     /// <summary>
-    /// 
+    /// Boolean that keeps track of if the game is over.
     /// </summary>
-    public bool partieFinie;
+    public bool partieFinie = false;
 
     /// <summary>
-    /// 
+    /// Variable that stores the score.
     /// </summary>
     private float _score = 0;
 
     private void Start()
     {
+        // Make sure that at the start of the game, the game is not over.
         partieFinie = false;
         foreach (var target in targets)
         {
-            // Listen to OnPointsGained event.
+            // Listen to each OnPointsGained event.
             target.OnPointsGained += HandleOnPointsGained;
         }
 
-        // Update the score UI text.
+        // Apply the default score UI to the text.
         scoreUIText.text = "Score: 0";
     }
 
@@ -38,24 +39,26 @@ public class ScoreDisplay : MonoBehaviour
     {
         foreach (var target in targets)
         {
-            // Unsubscribe from the OnPointsGained event.
+            // Unsubscribe from each of the OnPointsGained events.
             target.OnPointsGained -= HandleOnPointsGained;
         }
     }
 
     /// <summary>
-    /// 
+    /// Function that is called when the OnPointsGained event is triggered.
     /// </summary>
-    /// <param name="points"></param>
+    /// <param name="points">nombre de points à ajouter au score</param>
     private void HandleOnPointsGained(float points)
     {
+        // Add the points to the score.
         _score += points;
         Debug.Log("Score: " + _score);
+        // Update the score UI text.
         scoreUIText.text = "Score: " + _score.ToString();
+        // Check if the game is over.
         if (_score == 120)
         {
-            partieFinie=true;
+            partieFinie = true;
         }
     }
-
 }

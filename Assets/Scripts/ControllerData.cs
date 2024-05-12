@@ -30,7 +30,6 @@ public class ControllerData : MonoBehaviour
     /// <param name="newValue">Is there an item in this hand (true or false)?</param>
     public void InvokeOnHasItemInHandChanged(bool newValue)
     {
-        //Debug.Log("Invoke: " + this.name);
         // Raise the event to notify the Animator of the associated prefab that an item has been grabbed or dropped.
         // Pass the enum that tell which controller is sending the event (this one) and
         // the new value of if there is an item in this hand (true or false).
