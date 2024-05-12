@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Tooltip("Text child GameObject of the ScoreDisplay")]
     private Text scoreUIText;
 
-    [SerializeField]
+    [SerializeField, Tooltip("All the target GameObjects")]
     private List<Target> targets;
 
     /// <summary>
     /// 
     /// </summary>
-    public event Action OnScoreReset;
-
     public bool partieFinie;
 
+    /// <summary>
+    /// 
+    /// </summary>
     private float _score = 0;
 
     private void Start()
