@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class Tab : MonoBehaviour
 {
-    [SerializeField, Tooltip("The page to show when this tab is pressed.")]
+    [SerializeField, Tooltip("La Page à afficher lorsque ce Tab est cliqué.")]
     public GameObject pageToShow;
 }

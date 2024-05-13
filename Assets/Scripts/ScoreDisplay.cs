@@ -1,64 +1,62 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    [SerializeField, Tooltip("Text child GameObject of the ScoreDisplay")]
+    [SerializeField, Tooltip("GameObject enfant Text du ScoreDisplay")]
     private Text scoreUIText;
 
-    [SerializeField, Tooltip("All the target GameObjects")]
+    [SerializeField, Tooltip("Tous les GameObjects Target")]
     private List<Target> targets;
 
-    /// <summary>
-    /// Boolean that keeps track of if the game is over.
-    /// </summary>
-    public bool partieFinie = false;
+    [SerializeField, Tooltip("GameObject GameOverUI")]
+    private GameObject gameOverUI;
 
     /// <summary>
-    /// Variable that stores the score.
+    /// Variable qui stocke le score.
     /// </summary>
     private float _score = 0;
 
     private void Start()
     {
-        // Make sure that at the start of the game, the game is not over.
-        partieFinie = false;
+        // Boucler pour toutes les cibles.
         foreach (var target in targets)
         {
-            // Listen to each OnPointsGained event.
+            // Écoutez chaque événement OnPointsGained.
             target.OnPointsGained += HandleOnPointsGained;
         }
 
-        // Apply the default score UI to the text.
+        // Appliquez le nombre de points par défaut dans le composant Text.
         scoreUIText.text = "Score: 0";
     }
 
     private void OnDisable()
     {
+        // Boucler pour toutes les cibles.
         foreach (var target in targets)
         {
-            // Unsubscribe from each of the OnPointsGained events.
+            // Se désabonner de tous les événements OnPointsGained.
             target.OnPointsGained -= HandleOnPointsGained;
         }
     }
 
     /// <summary>
-    /// Function that is called when the OnPointsGained event is triggered.
+    /// Fonction appelée lorsque l'événement OnPointsGained est invoqué.
+    /// Met à jour le score et le texte du score et affiche le GameOverUI si le jeu est terminé.
     /// </summary>
     /// <param name="points">nombre de points à ajouter au score</param>
     private void HandleOnPointsGained(float points)
     {
-        // Add the points to the score.
+        // Ajoutez les points au score.
         _score += points;
-        Debug.Log("Score: " + _score);
-        // Update the score UI text.
+        // Mettre à jour le texte du UI du score.
         scoreUIText.text = "Score: " + _score.ToString();
-        // Check if the game is over.
+        // Vérifier si le jeu est terminé.
         if (_score == 120)
         {
-            partieFinie = true;
+            // Afficher le UI de fin de partie.
+            gameOverUI.SetActive(true);
         }
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 public class StartGameButton : MonoBehaviour
 {
     /// <summary>
-    /// Function called when the "Commencer le jeu" button is pressed.
-    /// Switches the Scene to the MainScene (scene with the game).
+    /// Fonction appelée lorsque l'on appuie sur le bouton "Commencer le jeu".
+    /// Changer la scène vers la MainScene (scène du jeu).
     /// </summary>
     public void OnPressed()
     {
-        // Switch Scene to MainScene.
-        SceneManager.LoadScene("MainScene"); // The Scene needs to be added to the Build Settings.
+        // Changer la scène vers la MainScene (scène du jeu).
+        SceneManager.LoadScene("MainScene"); // La scène doit être ajoutée aux Build Settings.
     }
 }

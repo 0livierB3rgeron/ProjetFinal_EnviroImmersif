@@ -3,39 +3,39 @@ using UnityEngine.UI;
 
 public class InfosMenuUI : MonoBehaviour
 {
-    [SerializeField, Tooltip("The default selected Tab GameObject.")]
+    [SerializeField, Tooltip("Le GameObject du Tab sélectionné par défaut.")]
     private Tab defaultSelectedTab;
 
     /// <summary>
-    /// Variable to store the previous selected Tab
-    /// to be able to un-toggle it when a new Tab is selected.
+    /// Variable pour stocker le Tab sélectionné précédemment afin de pouvoir
+    /// le déselectionner lorsqu'un nouveau Tab est sélectionné.
     /// </summary>
     private Tab previousSelectedTab;
 
     private void Start()
     {
-        // Set the previousSelectedTab to the default selected tab
-        // at the beginning of the scene.
+        // Définir le Tab sélectionné par défaut dans la variable previousSelectedTab
+        // au début de la scène.
         previousSelectedTab = defaultSelectedTab;
     }
 
     /// <summary>
-    /// Function called by the Tab in the Unity editor when it is clicked.
-    /// The tab that has been clicked is passed as a parameter in the editor.
+    /// Fonction appelée par le Tab dans l'éditeur Unity lorsqu'on clique dessus.
+    /// L'onglet sur lequel on a cliqué est passé en paramètre dans l'éditeur.
     /// </summary>
-    /// <param name="tabSelected">the tab that has been clicked and triggered this event</param>
+    /// <param name="tabSelected">l'onglet qui a été cliqué et qui a déclenché cet événement</param>
     public void OnTabChanged(Tab tabSelected)
     {
-        // Un-toggle the previous tab.
+        // Désactiver le Tab précédent.
         previousSelectedTab.GetComponent<Toggle>().isOn = false;
 
-        // Disable the previous tab's page.
+        // Désactiver la Page du Tab précédent.
         previousSelectedTab.pageToShow.SetActive(false);
 
-        // Enable the new tab's page.
+        // Activer la Page du nouveau Tab sélectionné.
         tabSelected.pageToShow.SetActive(true);
 
-        // Set the previousSelectedTab to the current tab.
+        // Changer la variable previousSelectedTab pour le Tab actuellement sélectionné.
         previousSelectedTab = tabSelected;
     }
 }

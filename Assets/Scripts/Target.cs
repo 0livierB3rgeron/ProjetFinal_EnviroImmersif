@@ -6,21 +6,21 @@ public class Target : MonoBehaviour
     [SerializeField, Tooltip("Nombre de points gagnés en touchant cette cible")]
     private float _nbrPoints;
 
-    [SerializeField, Tooltip("ScoreDisplay GameObject")]
+    [SerializeField, Tooltip("GameObject ScoreDisplay")]
     private ScoreDisplay scoreDisplay;
-    
+
     /// <summary>
-    /// Reference to the animator component.
+    /// Référence au composant Animator.
     /// </summary>
     private Animator _targetAnimator;
     /// <summary>
-    /// Reference to the collider component.
+    /// Référence au composant Collider.
     /// </summary>
     private Collider _collider;
 
     /// <summary>
-    /// Event that is invoked when points are gained.
-    /// It is listened to by the ScoreDisplay.
+    /// Événement invoqué lorsque des points sont gagnés.
+    /// Il est écouté par le ScoreDisplay.
     /// </summary>
     public event Action<float> OnPointsGained;
 
@@ -31,24 +31,24 @@ public class Target : MonoBehaviour
     }
 
     /// <summary>
-    /// Function to play the animation to hide the target.
+    /// Fonction pour jouer l'animation pour masquer la cible.
     /// </summary>
     void Rotate()
     {
-        // Tell the animator to play the animation to hide the target.
+        // Indiquer à l'Animator de jouer l'animation pour cacher la cible.
         this._targetAnimator.SetBool("isHidden", true);
     }
 
     /// <summary>
-    /// Function triggered by the Ray Interactor when it hits the target.
+    /// Fonction déclenchée par le Ray Interactor lorsqu'il atteint la cible.
     /// </summary>
     public void OnHit()
     {
-        // Invoke the OnPointsGained event to notify the ScoreDisplay that points have been gained.
+        // Invoquez l'événement OnPointsGained pour informer le ScoreDisplay que des points ont été gagnés.
         OnPointsGained?.Invoke(this._nbrPoints);
-        // Prevent the target from being hit again.
+        // Empêchez la cible d'être touchée à nouveau.
         this._collider.enabled = false;
-        // Run the function that plays the animation to hide the target.
+        // Exécutez la fonction qui joue l'animation pour masquer la cible.
         Rotate();
     }
 }

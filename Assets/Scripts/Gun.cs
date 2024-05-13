@@ -2,24 +2,23 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField, Tooltip("Select the layers that contain targets")]
+    [SerializeField, Tooltip("Sélectionnez les layers qui contiennent des Target.")]
     private LayerMask validLayersMask;
 
     /// <summary>
-    /// Function triggered by the gun when the player pressed the trigger button on the controller.
-    /// Plays the shooting sound of the gun, tests if the gun shot a target and run the action of the shot target.
+    /// Fonction déclenchée par le pistolet lorsque le joueur appuie sur le bouton trigger de la manette.
+    /// Joue le son de tir du pistolet, teste si le pistolet a tiré sur un Target et exécute l'action du Target touché.
     /// </summary>
     public void Shoot()
     {
-        // Play the shooting sound of the gun.
+        // Jouer le son de tir du pistolet.
         GetComponent<AudioSource>().Play();
 
-        // Test if the gun shot a target and run the action of the shot target.
+        // Tester si le pistolet a tiré sur un Target et exécuter l'action du Target touché.
         RaycastHit hit;
-        // If the ray intersect a target, call the OnHit() method of this Target GameObject.
+        // Si le Raycast croise un Target, appeler la fonction OnHit() de ce GameObject Target.
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, Mathf.Infinity, validLayersMask))
         {
-            //Debug.Log(hit.transform.gameObject.name);
             hit.transform.gameObject.GetComponent<Target>().OnHit();
         }
     }
